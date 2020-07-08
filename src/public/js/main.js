@@ -51,25 +51,25 @@ var request = new XMLHttpRequest();
 request.open("GET",url_csv);
 request.addEventListener('load', function(event) {
    if (request.status >= 200 && request.status < 300) {
-      generate(request.responseText);
+		generate(request.responseText);
+
+		// Second request: geojson
+		fetch(url_geojson).then(function(response) {
+			return response.json();
+		}).then(function(data) {
+			cities = L.geoJSON(data, {
+			    onEachFeature: onEachFeature,
+			},);
+			cities.addTo(map);
+			var overlayMaps = {
+			    "Marcadores": cities
+			};
+			// Create the control and add it to the map;
+			var control = L.control.layers(baseMapIndex, overlayMaps); // Grab the handle of the Layer Control, it will be easier to find.
+			control.addTo(map);
+		});
    } else {
       console.warn(request.statusText, request.responseText);
    }
 });
 request.send();
-
-// Second request: geojson
-fetch(url_geojson).then(function(response) {
-	return response.json();
-}).then(function(data) {
-	cities = L.geoJSON(data, {
-	    onEachFeature: onEachFeature,
-	},);
-	cities.addTo(map);
-	var overlayMaps = {
-	    "Marcadores": cities
-	};
-	// Create the control and add it to the map;
-	var control = L.control.layers(baseMapIndex, overlayMaps); // Grab the handle of the Layer Control, it will be easier to find.
-	control.addTo(map);
-});
