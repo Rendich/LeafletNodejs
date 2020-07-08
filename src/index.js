@@ -18,8 +18,10 @@ app.use(require('./routes/'));
 app.use( express.static(path.join(__dirname+ '/public')) );
 
 // start server
-app.listen(3000, () => {
-	console.log('Server in 3000');
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log("Server on port " + PORT);
 });
 // https://www.youtube.com/watch?v=Zy89Nj7tNNM
 // COMANDS:
