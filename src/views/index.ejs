@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Nodejs + Leaflet Simple Example </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+	<link rel='stylesheet' href="/css/main.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+	  	<h1>Desafío</h1>      
+		<h2>
+			Ejercicio
+		</h2>
+		<a href='https://github.com/cswcl/fake-api'>Uso de Leaflet y Nodejs</a>. Los requerimientos son:
+		<p>
+			<ul>
+				<li>Programe un pequeño servidor web con Nodejs que exponga una página web online, que muestre en un mapa los datos obtenidos de este repositorio.</li>
+				<li>Para el mapa se recomienda usar la biblioteca Leaflet, pero se puede usar otra si se prefiere.</li>
+				<li>Los datos se encuentran expuestos en este mismo repositorio via github pages:
+					<a href='http://cswcl.github.io/fake-api/monumentos_historicos_extracto.geojson'>GeoJson</a>
+					<a href='http://cswcl.github.io/fake-api/monumentos_historicos_extracto.csv'>CSV</a>
+				</li>
+				<li>Los datos se deben obtener al momento de cargar la página mediante una petición a github.io, no se considerará válido el ejercicio si se cargan localmente.</li>
+				<li>Se deben correlacionar los datos del GeoJson con los del CSV mediante el campo id, de manera que el mapa muestre el nombre de los monumentos, su latitud y longitud en un popup al cliquear los puntos del mapa.</li>     
+			</ul>
+		</p>
+		<h2>
+			Adicionales
+		</h2>
+		<p>Además, decidí agregar un poco de "complejidad":
+			<ul>
+				<li>Muestro el ID entre paréntesis, para poder facilitar el seguimiento con los datos.</li>
+				<li>Poder ocultar/desplegar la capa de marcadores.</li>
+				<li>Agregar un marcador circular (circleMarker) sobre cada marcador.</li>
+				<li>Distinguir algún elemento, o grupo (en este caso, los murales). Para esto cambio el color del círculo.</li>
+				<li>Agregar más capas de base, que se puedan cambiar.</li>
+				<li>Agregar un link a Google Maps a la posición del marcador.</li>
+			</ul>
+		</p>
+		<div id="map"></div>
+	</div>
+</div>
+
+<div class="container">
+	Desarrollado por Ricardo Rendich
+</div>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
