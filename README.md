@@ -1,3 +1,3 @@
 # LeafletNodejs
 Simple Leaflet and Nodejs example.  
-You can check this in this [demo link](http://leafletnodejs.herokuapp.com/).
+You can check this [Heroku demo](http://leafletnodejs.herokuapp.com/).
